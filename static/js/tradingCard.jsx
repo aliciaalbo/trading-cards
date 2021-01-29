@@ -1,4 +1,4 @@
-"use strict";
+
 const tradingCardData = [
   {
     name: 'Balloonicorn',
@@ -61,10 +61,25 @@ function TradingCard(props) {
 }
 
 function TradingCardContainer(){
-  return(<div>Hello!</div>
-  );
+  const tradingCards = [];
+
+  for (const currentCard of tradingCardData) {
+    tradingCards.push(
+      <TradingCard
+        name={currentCard.name}
+        skill={currentCard.skill}
+        imageUrl={currentCard.imageUrl}
+      />
+    );
+  }
+ return (
+ <React.Fragment>{tradingCards}</React.Fragment>
+ );
+ 
+
+
 }
-ReactDOM.render(<TradingCardContainer />, document.querySelector('#container'))
+ReactDOM.render(<TradingCardContainer />, document.getElementById('container'))
 
 // ReactDOM.render(
 //   (
